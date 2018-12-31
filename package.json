@@ -4,6 +4,8 @@
   "description": "To exert oneself to do or effect something; make an effort; strive:",
   "main": "index.js",
   "scripts": {
+    "compile": "tsc",
+    "build":"node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +24,10 @@
   "bugs": {
     "url": "https://github.com/jasonericdavis/endeavor/issues"
   },
-  "homepage": "https://github.com/jasonericdavis/endeavor#readme"
+  "homepage": "https://github.com/jasonericdavis/endeavor#readme",
+  "devDependencies": {
+    "@types/parcel-bundler": "^1.10.1",
+    "parcel-bundler": "^1.11.0",
+    "typescript": "^3.2.2"
+  }
 }
