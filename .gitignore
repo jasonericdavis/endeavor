@@ -2,3 +2,4 @@ node_modules/
 site
 dist
 .cache
+npm-debug.log

@@ -1,7 +1,7 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
-         "target": "es5",
+         "target": "es6",
          "module": "commonjs",
          "noImplicitAny": true,
          "removeComments": true,
@@ -12,10 +12,10 @@
          "jsx": "react"
     },
      "files": [
-         "src/index.ts"
+         "server.ts"
      ],
      "include": [
-         "src/**/*"
+        "server.ts"
      ],
      "exclude": [
          "node_modules"
