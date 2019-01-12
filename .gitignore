@@ -1,5 +1,4 @@
 node_modules/
-site
-dist
-.cache
+next
 npm-debug.log
+.cache
