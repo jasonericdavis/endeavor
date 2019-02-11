@@ -1,24 +1,13 @@
 const { ApolloServer, gql} = require('apollo-server-express');
-const firebase = require("firebase");
+const {Storage} = require('@google-cloud/storage');
 require('dotenv').config();
 
-firebase.initializeApp({
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_DOMAIN,
-  projectId: process.env.FIREBASE_PROJECTID
+
+
+const storage = new Storage({
+  projectId: 'concrete-slab',
+  keyFilename: process.env.GOOGLE_CLOUD_KEYFILE,
 });
-
-
-// Initialize Cloud Firestore through Firebase
-var db = firebase.firestore();
-
-// Disable deprecated features
-db.settings({
-timestampsInSnapshots: true
-});
-
-const dbRef = db.collection("users");
-
 
 // This is a (sample) collection of books we'll be able to query
 // the GraphQL server for.  A more complete example might fetch
@@ -45,8 +34,8 @@ type Book {
   author: String
 }
 
-type User {
-  first: String
+type Page {
+  title: String
   last: String
   born: String
 }
@@ -56,7 +45,7 @@ type User {
 # (A "Mutation" type will be covered later on.)
 type Query {
   books: [Book]
-  users: [User]
+  pages: [Page]
 }
 
 `;
@@ -67,9 +56,10 @@ type Query {
 const resolvers = {
     Query: {
       books: () => books,
-      async users() {
-          const userDoc = await dbRef.get();
-          return userDoc.docs.map(user => user.data());
+      async pages() {
+          // Lists files in the bucket
+          const [files] = await storage.bucket('concrete-slab-test-bucket').getFiles({prefix: 'pages/'});
+          return files.map(file =>   ({ title: file.name}))
       }
     }
 };

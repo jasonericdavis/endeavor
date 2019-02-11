@@ -21,6 +21,7 @@ app.prepare()
   })
 
   server.get('*', (req, res) => {
+    // console.log(`Request: ${req.url}`);
     return handle(req, res)
   })
 

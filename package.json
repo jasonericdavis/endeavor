@@ -32,10 +32,10 @@
   "dependencies": {
     "@emotion/core": "^10.0.6",
     "@emotion/styled": "^10.0.6",
+    "@google-cloud/storage": "^2.4.2",
     "apollo-server-express": "^2.3.2",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
-    "firebase": "^5.8.1",
     "graphql": "^14.1.1",
     "next": "^7.0.2",
     "react": "^16.7.0",
