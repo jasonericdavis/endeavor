@@ -32,6 +32,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.6",
     "@emotion/styled": "^10.0.6",
+    "@google-cloud/firestore": "^1.0.1",
     "@google-cloud/storage": "^2.4.2",
     "apollo-server-express": "^2.3.2",
     "dotenv": "^6.2.0",

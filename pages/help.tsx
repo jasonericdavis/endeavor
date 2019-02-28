@@ -1,7 +1,14 @@
 import Layout from '../components/layout';
 
-export default () => {
+const HelpPage = () =>  {
     return (
         <Layout>This is the help page</Layout>            
     )
 }
+
+HelpPage.getInitialProps = ():{} => {
+    console.log('creating help page')
+    return {};
+}
+
+export default HelpPage;
